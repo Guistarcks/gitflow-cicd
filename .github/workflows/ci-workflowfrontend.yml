@@ -2,12 +2,16 @@ name: CI-FRONTEND
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - 'feature/**'
-  # pull_request:
-  #   branches:
-  #     - 'feature/**'
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'frontend/**'
+  pull_request:
+    branches:
+      - 'develop'
+    paths:
+      - 'frontend/**'
 
 jobs:
   test-frontend:
