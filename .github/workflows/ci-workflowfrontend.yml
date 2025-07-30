@@ -8,6 +8,7 @@ on:
     paths:
       - 'frontend/**'
   pull_request:
+    types: [closed]
     branches:
       - 'develop'
     paths:
