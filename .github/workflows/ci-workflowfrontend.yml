@@ -1,4 +1,4 @@
-name: CI-FRONTEND
+name: CI-FRONTEND #${{ github.run_number }}
 
 on:
   workflow_dispatch:
