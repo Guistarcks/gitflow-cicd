@@ -14,5 +14,7 @@ jobs:
     uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@main
     with:
       node-version: '18.x'
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 
