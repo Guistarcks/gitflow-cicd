@@ -1,4 +1,4 @@
-name: CI-FRONTEND #${{ github.run_number }}
+name: CI-CD-FRONTEND #${{ github.run_number }}
 
 on:
   workflow_dispatch:
@@ -11,15 +11,14 @@ on:
     types: [closed]
     branches:
       - 'develop'
+      - 'main'
     paths:
       - 'frontend/**'
 
 jobs:
-  test-frontend:
-    uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@main
+  CI-CD:
+    uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
       node-version: '18.x'
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
