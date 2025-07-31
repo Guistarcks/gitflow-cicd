@@ -1,4 +1,4 @@
-name: CI-BACKEND
+name: CI-CD-BACKEND
 
 on:
   workflow_dispatch:
