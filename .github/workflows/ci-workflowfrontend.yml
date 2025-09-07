@@ -1,4 +1,5 @@
 name: CI-FRONTEND #${{ github.run_number }}
+run-name: CI-FRONTEND * ${{ github.run_name }} * ${{ github.run_sha }}
 
 on:
   workflow_dispatch:
@@ -13,13 +14,30 @@ on:
       - 'develop'
     paths:
       - 'frontend/**'
+  sonar-scanner:
+        description: 'SonarQube scan mode'
+        required: true
+        type: choice
+        options:
+          - on 
+          - skip
+        default: 'skip'
+  deploy-entorno:
+        description: 'deploy to entorno'
+        required: true
+        type: choice
+        options:
+          - dev
+          - pro
+          - pre
+        default: ''
 
 jobs:
   test-frontend:
-    uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@main
+    uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
       node-version: '18.x'
-    secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
+      deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
 
 

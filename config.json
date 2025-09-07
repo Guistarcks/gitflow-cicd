@@ -1,4 +1,5 @@
 {
    "version": "1.0.0-snapshot",
-   "description": "apiRest-node"
+   "sonar-scanner": "skip",
+   "entorno": "development"
 }
