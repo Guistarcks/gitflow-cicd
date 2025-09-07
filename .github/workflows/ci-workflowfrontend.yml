@@ -1,5 +1,5 @@
 name: CI-FRONTEND #${{ github.run_number }}
-run-name: CI-FRONTEND * ${{ github.run_name }} * ${{ github.run_sha }}
+run-name: CI-FRONTEND ${{ github.run_name }}  ${{ github.run_sha }}
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
           - dev
           - pro
           - pre
-        default: ''
+        default: 'pre'
   push:
     branches:
       - 'feature/**'
@@ -40,5 +40,6 @@ jobs:
       node-version: '18.x'
       sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
       deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
-
+      base-branches: ${ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name } }
+      pr-merged: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged || false }}
 
