@@ -24,7 +24,7 @@ on:
   push:
     branches:
       - 'feature/**'
-      - 'develop/**'
+      - 'develop'
     paths:
       - 'backend/**'
   pull_request:
