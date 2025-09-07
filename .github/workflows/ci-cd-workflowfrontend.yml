@@ -24,7 +24,7 @@ on:
   push:
     branches:
       - 'feature/**'
-      - 'develop'
+      - 'develop/**'
     paths:
       - 'frontend/**'
   pull_request:
@@ -43,4 +43,5 @@ jobs:
       deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
       base-branches: ${ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name } }
       pr-merged: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged || false }}
+    
 
