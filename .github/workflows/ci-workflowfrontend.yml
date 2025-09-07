@@ -3,6 +3,24 @@ run-name: CI-FRONTEND * ${{ github.run_name }} * ${{ github.run_sha }}
 
 on:
   workflow_dispatch:
+    inputs:
+      sonar-scanner:
+        description: 'SonarQube scan mode'
+        required: true
+        type: choice
+        options:
+          - on 
+          - skip
+        default: 'skip'
+      deploy-entorno:
+        description: 'deploy to entorno'
+        required: true
+        type: choice
+        options:
+          - dev
+          - pro
+          - pre
+        default: ''
   push:
     branches:
       - 'feature/**'
@@ -14,23 +32,6 @@ on:
       - 'develop'
     paths:
       - 'frontend/**'
-  sonar-scanner:
-        description: 'SonarQube scan mode'
-        required: true
-        type: choice
-        options:
-          - on 
-          - skip
-        default: 'skip'
-  deploy-entorno:
-        description: 'deploy to entorno'
-        required: true
-        type: choice
-        options:
-          - dev
-          - pro
-          - pre
-        default: ''
 
 jobs:
   test-frontend:
