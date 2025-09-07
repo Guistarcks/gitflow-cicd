@@ -1,0 +1,46 @@
+name: CI-CD-BACKEND #${{ github.run_number }}
+run-name: CI-CD-BACKEND ${{ github.run_name }}  ${{ github.run_sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      sonar-scanner:
+        description: 'SonarQube scan mode'
+        required: true
+        type: choice
+        options:
+          - on 
+          - skip
+        default: 'skip'
+      deploy-entorno:
+        description: 'deploy to entorno'
+        required: true
+        type: choice
+        options:
+          - dev
+          - pro
+          - pre
+        default: 'pre'
+  push:
+    branches:
+      - 'feature/**'
+      - 'develop'
+    paths:
+      - 'backend/**'
+  pull_request:
+    types: [closed]
+    branches:
+      - 'develop'
+    paths:
+      - 'backend/**'
+
+jobs:
+  ci-cd:
+    uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
+    with:
+      node-version: '18.x'
+      sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
+      deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
+      base-branches: ${ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name } }
+      pr-merged: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged || false }}
+
