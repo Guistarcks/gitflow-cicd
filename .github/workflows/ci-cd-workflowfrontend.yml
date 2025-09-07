@@ -1,5 +1,5 @@
-name: CI-FRONTEND #${{ github.run_number }}
-run-name: CI-FRONTEND ${{ github.run_name }}  ${{ github.run_sha }}
+name: CI-CD-FRONTEND #${{ github.run_number }}
+run-name: CI-CD-FRONTEND ${{ github.run_name }}  ${{ github.run_sha }}
 
 on:
   workflow_dispatch:
