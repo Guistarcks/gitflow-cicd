@@ -38,6 +38,7 @@ jobs:
   ci-cd:
     uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
+      path-config-json: './onfig.json'
       node-version: '18.x'
       sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
       deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
