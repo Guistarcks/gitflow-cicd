@@ -1,4 +1,4 @@
-name: CI-CD-BACKEND #${{ github.run_number }}
+# name: CI-CD-BACKEND #${{ github.run_number }}
 run-name: CI-CD-BACKEND ${{ github.run_name }}  ${{ github.run_sha }}
 
 on:
@@ -38,7 +38,7 @@ jobs:
   ci-cd:
     uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
-      path-config-json: './onfig.json'
+      path-config-json: './config.json'
       node-version: '18.x'
       sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
       deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
