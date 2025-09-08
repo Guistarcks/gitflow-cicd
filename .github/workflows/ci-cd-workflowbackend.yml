@@ -1,5 +1,5 @@
-# name: CI-CD-BACKEND #${{ github.run_number }}
-run-name: CI-CD-BACKEND ${{ github.run_name }}  ${{ github.run_sha }}
+name: CI-CD-BACKEND #${{ github.run_number }}
+run-name: CI-CD-BACKEND ${{ github.run_name }} ${{ github.run_sha }}
 
 on:
   workflow_dispatch:
