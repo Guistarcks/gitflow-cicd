@@ -1,0 +1,11 @@
+{
+    "name": "Dunmi",
+    "version": "1.0.0",
+    "description": "Dunmi is a tool for managing your projects",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Gui-start02",
+    "license": "ISC"
+}
