@@ -10,7 +10,7 @@ permissions:
   contents: write  # Permite escribir al repositorio
   pull-requests: write  # Si necesitas crear PRs
   actions: write
-  
+
 jobs:
   release:
     name: Publish new release
@@ -49,11 +49,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          head: master
+          head: main
           base: dev
-          title: Merge master into dev branch
+          title: Merge main into dev branch
           body: |
-            This PR merges the master branch back into dev.
+            This PR merges the main branch back into dev.
             This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
 
       # if needed, you can checkout the latest master here, build artifacts and publish / deploy them somewhere
