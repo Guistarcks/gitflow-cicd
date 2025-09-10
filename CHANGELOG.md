@@ -7,7 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2025-09-10
 
 ## [2.0.0] - 2020-10-17
 
@@ -40,5 +39,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   The author of the PR is github-actions[bot], we can request a review from them.
 - Don't make a separate commit for updating the version of package.json
 
-[unreleased]: https://github.com/Guistarcks/gitflow-cicd/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/Guistarcks/gitflow-cicd/compare/6cf302b0b0039fb74d2671c34f9445614f8927dd...1.0.0
