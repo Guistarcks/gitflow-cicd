@@ -6,7 +6,11 @@ on:
       version:
         description: 'The version you want to release.'
         required: true
-
+permissions:
+  contents: write  # Permite escribir al repositorio
+  pull-requests: write  # Si necesitas crear PRs
+  actions: write
+  
 jobs:
   draft-new-release:
     name: "Draft a new release"

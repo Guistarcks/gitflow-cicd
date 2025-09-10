@@ -6,7 +6,11 @@ on:
       - main
     types:
       - closed
-
+permissions:
+  contents: write  # Permite escribir al repositorio
+  pull-requests: write  # Si necesitas crear PRs
+  actions: write
+  
 jobs:
   release:
     name: Publish new release
