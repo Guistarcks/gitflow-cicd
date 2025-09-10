@@ -1,5 +1,5 @@
-name: "Draft new release"
-
+name: "CREAR-NUEVA-RELEASE"
+run-name: CREAR-NUEVA-RELEASE ${{ github.run_name }}  ${{ github.run_sha }}
 on:
   workflow_dispatch:
     inputs:

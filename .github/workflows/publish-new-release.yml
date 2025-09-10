@@ -1,5 +1,5 @@
-name: "Publish new release"
-
+name: "PUBLICAR-NUEVA-RELEASE"
+run-name: PUBLICAR-NUEVA-RELEASE ${{ github.run_name }}  ${{ github.run_sha }}
 on:
   pull_request:
     branches:
