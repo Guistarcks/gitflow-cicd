@@ -5,44 +5,43 @@ on:
   workflow_dispatch:
     inputs:
       sonar-scanner:
-        description: 'SonarQube scan mode'
+        description: "SonarQube scan mode"
         required: true
         type: choice
         options:
-          - on 
+          - on
           - skip
-        default: 'skip'
+        default: "skip"
       deploy-entorno:
-        description: 'deploy to entorno'
+        description: "deploy to entorno"
         required: true
         type: choice
         options:
           - dev
           - pro
           - pre
-        default: 'pre'
+        default: "pre"
   push:
     branches:
-      - 'feature/'
-      - 'release/'
+      - "feature/*"
+      - "release/*"
     paths:
-      - 'backend/**'
+      - "backend/**"
   pull_request:
     types: [closed]
     branches:
-      - 'develop/'
-      - 'main/'
+      - "develop"
+      - "main"
     paths:
-      - 'backend/**'
+      - "backend/**"
 
 jobs:
   ci-cd:
     uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
-      path-config-json: './config.json'
-      node-version: '18.x'
-      sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
-      deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
-      base-branches: ${ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name } }
+      path-config-json: "./config.json"
+      node-version: "18.x"
+      sonar-scanner: ${{ github.event.inputs.sonar-scanner }}
+      deploy-entorno: ${{ github.event.inputs.deploy-entorno }}
+      base-branches: ${{ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name }}
       pr-merged: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged || false }}
-
