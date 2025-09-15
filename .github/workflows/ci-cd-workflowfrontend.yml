@@ -1,5 +1,5 @@
 name: CI-CD-FRONTEND #${{ github.run_number }}
-run-name: CI-CD-FRONTEND ${{ github.run_name }}  ${{ github.run_sha }}
+run-name: CI-CD-FRONTEND ${{ github.run_name }}
 
 on:
   workflow_dispatch:
@@ -23,14 +23,15 @@ on:
         default: 'pre'
   push:
     branches:
-      - 'feature/**'
-      - 'develop/**'
+      - 'feature/'
+      - 'release/'
     paths:
       - 'frontend/**'
   pull_request:
     types: [closed]
     branches:
-      - 'develop'
+      - 'develop/'
+      - 'main/'
     paths:
       - 'frontend/**'
 
@@ -39,7 +40,7 @@ jobs:
     uses: Guistarcks/workflow-reutilizable-demo/.github/workflows/ci-cd.yml@main
     with:
       node-version: '18.x'
-      sonar-scanner: ${{ github.event.inputs.sonar-scanner || 'skip' }}
+      sonar-scanner: ${{ github.event.inputs.sonar-scanner }}
       deploy-entorno: ${ github.event.inputs.deploy-entorno || '' }
       base-branches: ${ github.event_name =='pull_request' && github.event.pull_request.base.ref || github.ref_name } }
       pr-merged: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged || false }}
