@@ -23,15 +23,15 @@ on:
         default: 'pre'
   push:
     branches:
-      - 'feature/'
-      - 'release/'
+      - 'feature/**'
+      - 'release/**'
     paths:
       - 'backend/**'
   pull_request:
     types: [closed]
     branches:
-      - 'develop/'
-      - 'main/'
+      - 'develop/**'
+      - 'main/**'
     paths:
       - 'backend/**'
 
