@@ -1,6 +1,6 @@
 {
    "version": "1.2.0-snapshot",
-   "sonar-scanner": "skip",
+   "sonar-scanner": "off",
    "entorno": "dev",
     "modulos": {
       "backend": "backend",
