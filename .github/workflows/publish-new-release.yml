@@ -1,11 +1,11 @@
 name: "PUBLICAR-NUEVA-RELEASE"
 run-name: PUBLICAR-NUEVA-RELEASE ${{ github.run_name }}  ${{ github.run_sha }}
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
+  # pull_request:
+  #   branches:
+  #     - main
+  #   types:
+  #     - closed
 permissions:
   contents: write  # Permite escribir al repositorio
   pull-requests: write  # Si necesitas crear PRs
