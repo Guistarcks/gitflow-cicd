@@ -34,6 +34,11 @@ on:
       - "main"
     paths:
       - "backend/**"
+      
+permissions:
+  contents: write  # Permite escribir al repositorio
+  pull-requests: write  # Si necesitas crear PRs
+  actions: write
 
 jobs:
   ci-cd:
